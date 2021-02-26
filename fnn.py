@@ -72,7 +72,7 @@ class functional_input_layer(tf.keras.layers.Dense):
             shape=(self.output_dim,), initializer="zeros", trainable=True)
 
         
-        return tf.reduce_sum(self.c * function_input_integral) + K.dot(scalar_input, self.w) + self.b
+        return tf.math.reduce_sum(self.c * function_input_integral) + K.dot(scalar_input, self.w) + self.b
 
     def compute_output_shape(self, input_shape): 
         return (input_shape[0], self.output_dim)
